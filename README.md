@@ -57,7 +57,7 @@ Script installs Trial version valid for 90 days however you can provide to confi
   - Created additional user kb 
   - Added domain vagrant user and kb user to proper AD groups in order to run CRM
 
-### Node1 VM containes:
+### Node1 VM contains:
   - VM joined to an AD domain
   - Chocolatey
   - Installed SQL Server 2016 with Reporting services and other features required by Microsoft Dynamics (can be configure via file)

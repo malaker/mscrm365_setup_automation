@@ -1,0 +1,50 @@
+<CRMSetup>  
+<Server>  
+<Patch update="false">\\ServerName\ShareName\patchfile.msp</Patch>  
+<LicenseKey>KKNV2-4YYK8-D8HWD-GDRMW-29YTW</LicenseKey>  
+<SqlServer>NODE1</SqlServer>  
+<Database create="true"/>  
+<Reporting URL="http://node1/ReportServer"/>  
+<OrganizationCollation>Latin1_General_CI_AI</OrganizationCollation>  
+<basecurrency isocurrencycode="USD" currencyname="US Dollar" currencysymbol="$" currencyprecision="2"/>  
+<Organization>R1</Organization>  
+<OrganizationUniqueName>R1</OrganizationUniqueName>  
+<OU>DC=sixteen,DC=contoso,DC=ad</OU>  
+<WebsiteUrl create="true" port="5555"> </WebsiteUrl>  
+<InstallDir>c:\Program Files\Microsoft Dynamics CRM</InstallDir>  
+<remoteinstall>true</remoteinstall>
+<CrmServiceAccount type="DomainUser">  
+  <ServiceAccountLogin>sixteen\vagrant</ServiceAccountLogin>  
+  <ServiceAccountPassword>vagrant</ServiceAccountPassword>  
+</CrmServiceAccount>  
+  
+<SandboxServiceAccount type="DomainUser">  
+  <ServiceAccountLogin>sixteen\kb</ServiceAccountLogin>  
+  <ServiceAccountPassword>zaq1@WSX</ServiceAccountPassword>  
+</SandboxServiceAccount>  
+  
+<DeploymentServiceAccount type="DomainUser">  
+  <ServiceAccountLogin>sixteen\kb</ServiceAccountLogin>  
+  <ServiceAccountPassword>zaq1@WSX</ServiceAccountPassword>  
+</DeploymentServiceAccount>  
+  
+<AsyncServiceAccount type="DomainUser">  
+  <ServiceAccountLogin>sixteen\vagrant</ServiceAccountLogin>  
+  <ServiceAccountPassword>vagrant</ServiceAccountPassword>  
+</AsyncServiceAccount>  
+  
+<VSSWriterServiceAccount type="DomainUser">   
+  <ServiceAccountLogin>sixteen\kb</ServiceAccountLogin>  
+  <ServiceAccountPassword>zaq1@WSX</ServiceAccountPassword>   
+</VSSWriterServiceAccount>  
+  
+<MonitoringServiceAccount type="DomainUser">  
+  <ServiceAccountLogin>sixteen\kb</ServiceAccountLogin>  
+  <ServiceAccountPassword>zaq1@WSX</ServiceAccountPassword> 
+</MonitoringServiceAccount>  
+  
+  <SQM optin="false"/>  
+ <muoptin optin="false"/>  
+
+ </Server>  
+</CRMSetup>

@@ -1,0 +1,13 @@
+<crmsetup>  
+<srsdataconnector>  
+<configdbserver>NODE1</configdbserver>   
+<autogroupmanagementoff>1</autogroupmanagementoff>  
+<instancename>MSSQLSERVER</instancename>  
+<patch update="false" />   
+<muoptin optin="false" />  
+<MonitoringServiceAccount type="DomainUser">  
+  <ServiceAccountLogin>sixteen\vagrant</ServiceAccountLogin>  
+  <ServiceAccountPassword>vagrant</ServiceAccountPassword>  
+</MonitoringServiceAccount>  
+</srsdataconnector>  
+</crmsetup>  

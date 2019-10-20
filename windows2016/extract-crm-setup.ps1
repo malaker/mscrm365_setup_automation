@@ -1,0 +1,30 @@
+#extracting files from crm server exe
+New-Item -ItemType directory -Path C:\crmsetup -Force
+& C:\vagrant\CRM9.0-Server-ENU-amd64.exe /quiet /extract:C:\crmsetup\ /log:C:\logs\log1.txt
+
+Copy-Item C:\vagrant\crmconfig.xml C:\crmsetup\
+
+$contentReady = $false
+while ($contentReady -eq $false){
+
+    $itemsCount = ( Get-ChildItem C:\crmsetup  ).Count;
+
+    if ($itemsCount -gt 0){
+        $contentReady = $true
+    }
+}
+$contentReady = $false
+while($contentReady -eq $false){
+    $matches = Select-String -Path C:\Logs\log1.txt -Pattern "Done extracting the files"
+    
+    if ( $matches.Length -gt 0 ){
+        $contentReady = $true
+    }else{
+        Write-Host "Waiting for files extraction completion"
+    }
+    Write-Host $matches
+    Start-Sleep -Seconds 1
+}
+Write-Host "All files extracted - ready for crm installation"
+
+Exit 0

@@ -32,20 +32,23 @@ Invoke-Command -Session $s2 -ScriptBlock {
     function Wait-ForFinish($time){
         $initialtime = $time
         while($true){
-            if ($time -gt 6700){
+            if ($time -gt 9700){
                 break;
             }
+            
             Start-Sleep -Seconds $initialtime
-            $matches = Select-String -Path C:\Logs\logcrm.txt -Pattern "The installation of Dynamics 365 Server has been successfully completed"
-            $matches2 = Select-String -Path C:\Logs\logcrm.txt -Pattern "Microsoft.Crm.Setup.Server.ServerSetup.Terminate"
-            if($matches2.Length -gt 0){
-                Write-Host "Installation finished";
+            
+            $installationCompletionMatch = Select-String -Path C:\Logs\logcrm.txt -Pattern "The installation of Dynamics 365 Server has been successfully completed"
+            $installationTerminationMatch = Select-String -Path C:\Logs\logcrm.txt -Pattern "Microsoft.Crm.Setup.Server.ServerSetup.Terminate"
+            
+            if($installationTerminationMatch.Length -gt 0){
+                Write-Host "Installation failed";
                 break;
             }
-            if($matches.Length -lt 1){
+            if($installationCompletionMatch.Length -lt 1){
             
             
-                $time=$time+10;
+                $time=$time+60;
                 Write-Host "Waiting for completion remote $time";
                 Get-Content -Path C:\Logs\logcrm.txt -Tail 10 -Force
             
@@ -55,8 +58,8 @@ Invoke-Command -Session $s2 -ScriptBlock {
             }
         }
     }
-    
-    Start-Process -FilePath C:\crmsetup\SetupServer.exe "/Q /config c:\crmsetup\crmconfig.xml /L C:\logs\logcrm.txt /InstallAlways"
+    Write-Host "Installation started"
+    Start-Process -Wait -FilePath C:\crmsetup\SetupServer.exe "/Q /config c:\crmsetup\crmconfig.xml /L C:\logs\logcrm.txt /InstallAlways"
 
     Wait-ForFinish 5
 

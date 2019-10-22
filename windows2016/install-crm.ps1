@@ -47,7 +47,7 @@ Invoke-Command -Session $s2 -ScriptBlock {
                 Write-Host "Waiting for completion remote $time";
                 Get-Content -Path C:\Logs\logcrm.txt -Tail 10 -Force
             
-            }else if(installationCompletionMatch -gt 0){
+            }ElseIF(installationCompletionMatch -gt 0){
                 Write-Host "CRM installation completed";
                 break;
             }else{

@@ -1,4 +1,12 @@
 #extracting files from crm server exe
+$crmExists = test-path C:\sources\vagrant\CRM9.0-Server-ENU-amd64.exe
+$output = "C:\vagrant\CRM9.0-Server-ENU-amd64.exe"
+$url = "https://download.microsoft.com/download/B/D/0/BD0FA814-9885-422A-BA0E-54CBB98C8A33/CRM9.0-Server-ENU-amd64.exe"
+if($crmExists -eq $false){
+Import-Module BitsTransfer
+Start-BitsTransfer -Source $url -Destination $output
+}
+
 New-Item -ItemType directory -Path C:\crmsetup -Force
 & C:\vagrant\CRM9.0-Server-ENU-amd64.exe /quiet /extract:C:\crmsetup\ /log:C:\logs\log1.txt
 

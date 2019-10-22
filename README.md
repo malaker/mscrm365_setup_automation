@@ -12,8 +12,7 @@ At least 16 GB RAM and at least 70 GB free space for vms.
 
 ## Prerequisites
 
-1) Download CRM9.0-Server-ENU-amd64.exe https://www.microsoft.com/en-us/download/details.aspx?id=57478
-2) Download SQL Server 2016 Developer
+1) Download SQL Server 2016 Developer
 
 ### Vagrant prerequisites
 
@@ -27,8 +26,7 @@ Please install reload plugin for vagrant
 
 Automation script in order to run a bit faster require to have downloaded :
 
-1. CRM9.0-Server-ENU-amd64.exe => please put with the same name into the same place where vagrant file is
-2. SQL Server 2016 Developer.iso => rename to sql.iso and put into the same place where vagrant file is. Please be informed that SQL 2017 Developer probably can be used but Reporting Services has to run on SQL 2016 Server otherwise Crm installed have problem with RS detection. I recommend installing Sql Server 2016. 
+1. SQL Server 2016 Developer.iso => rename to sql.iso and put into the same place where vagrant file is. Please be informed that SQL 2017 Developer probably can be used but Reporting Services has to run on SQL 2016 Server otherwise Crm installed have problem with RS detection. I recommend installing Sql Server 2016. 
 
 In the future it is planned to download them if they don't exist
 

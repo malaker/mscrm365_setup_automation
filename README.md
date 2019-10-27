@@ -28,8 +28,6 @@ Automation script in order to run a bit faster require to have downloaded :
 
 1. SQL Server 2016 Developer.iso => rename to sql.iso and put into the same place where vagrant file is. Please be informed that SQL 2017 Developer probably can be used but Reporting Services has to run on SQL 2016 Server otherwise Crm installed have problem with RS detection. I recommend installing Sql Server 2016. 
 
-In the future it is planned to download them if they don't exist
-
 ## Setup overview
 
 ### VM OS:
